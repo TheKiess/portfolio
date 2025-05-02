@@ -1,6 +1,13 @@
-import './style.css'
+import { useState } from 'react';
+import SplashScreen from './splashscreen';
+import './style.css';
 
 function Home() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
   return (
     <div className='container'>
@@ -15,11 +22,11 @@ function Home() {
 
       <div id="content">
         <button className='buttonLeft'>‹</button>
-        <div className='pages' > {} </div>
+        <div className='pages'>{}</div>
         <button className='buttonRight'>›</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
