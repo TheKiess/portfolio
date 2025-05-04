@@ -91,27 +91,27 @@
   line-height: 1.6;
   max-width: 400px;
 }
-.slide {
+.slide{
   position: absolute;
   width: 100%;
   max-width: 800px;
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-.hidden {
+.hidden{
   display: none;
 }
 
-.slide-out-left {
+.slide-out-left{
   transform: translateX(-100%);
   opacity: 0;
 }
 
-.slide-in-right {
+.slide-in-right{
   animation: slideInFromRight 0.8s ease forwards;
 }
 
-@keyframes slideInFromRight {
+@keyframes slideInFromRight{
   from {
     transform: translateX(100%);
     opacity: 0;
@@ -120,4 +120,56 @@
     transform: translateX(0%);
     opacity: 1;
   }
+}
+
+.cabecalho{
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho nav a{
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #00ccff;
+  transition: color 0.3s ease;
+}
+
+.cabecalho nav a:hover{
+  color: #00ffaa;
+}
+
+.buttonLeft, .buttonRight{
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.buttonLeft:hover, .buttonRight:hover{
+  transform: scale(1.2);
+}
+
+#content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.pages {
+  width: 80%;
+  min-height: 300px;
+  margin: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
