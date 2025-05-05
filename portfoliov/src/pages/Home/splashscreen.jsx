@@ -44,7 +44,7 @@ function SplashScreen({ onFinish }) {
             className="splash-box"
             initial={{ x: 0, opacity: 1 }}
             exit={{ x: -800, opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2 }}
           >
             <h1 className="splash-title">Bem-vindo ao meu portfólio</h1>
             <div className="linguagens-container">
@@ -69,14 +69,14 @@ function SplashScreen({ onFinish }) {
             initial={{ x: 800, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -800, opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2 }}
           >
             <div className="sobre-container">
               <div className="foto">
-                <img src="./eu.jpeg" alt="Minha foto" />
+                <img src='src/assets/eu.jpeg'/>
               </div>
               <div className="info">
-                <h2>Frank</h2>
+                <h2>Frank Kiess</h2>
                 <p><strong>Cidade:</strong> Passo Fundo</p>
                 <p><strong>Idade:</strong> 24 anos</p>
                 <p><strong>Universidade:</strong> UPF</p>

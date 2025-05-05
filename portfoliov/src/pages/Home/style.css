@@ -21,7 +21,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 30px;
-  animation: typing 2s steps(40, end);
+  animation: typing 1.5s steps(40, end);
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid white;
@@ -91,6 +91,7 @@
   line-height: 1.6;
   max-width: 400px;
 }
+
 .slide{
   position: absolute;
   width: 100%;
@@ -122,13 +123,14 @@
   }
 }
 
-.cabecalho{
+.cabecalho {
   padding: 1.5rem;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .cabecalho nav a{
@@ -155,21 +157,40 @@
   transform: scale(1.2);
 }
 
-#content {
+#content{
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
-.pages {
-  width: 80%;
+.pages{
+  width: 50%;
   min-height: 300px;
   margin: 0 1rem;
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   color: white;
-  padding: 1rem;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.nome{
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #00ccff;
+}
+
+.descricao{
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
 }
