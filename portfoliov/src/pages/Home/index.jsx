@@ -21,12 +21,21 @@ function Home() {
       <div id="content">
         <button className='buttonLeft'>‹</button>
         <div className='pages'>
-        <h1 className='nome'>Frank Kiess</h1>
-        <p className='descricao'>
-          Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
-          Já trabalhei com frontend, backend, manipulação de banco de dados com PGAdmin e algoritmos em Python.
-          Atualmente estou me aprofundando em C++ e buscando oportunidades de intercâmbio para crescer profissionalmente.
-        </p>
+          <h2 className='title'>Frank Kiess</h2>
+          <p className='descricao'>
+            Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
+            Já trabalhei com frontend, backend, manipulação de banco de dados com PGAdmin e algoritmos em Python.
+            Atualmente estou me aprofundando em C++ e buscando oportunidades de intercâmbio para crescer profissionalmente.
+          </p><br/>
+          <h2 className='title'>Experiências</h2>
+          <div id='experiences'>
+            <div id="separator1">
+              <h4 id='experience1'>Exército Brasileiro</h4>
+              <h4 id='experience2'>EVO Automações</h4>
+            </div>
+            <div id="separator2"></div>
+            <div id="separator3"></div>
+          </div>
         </div>
         <button className='buttonRight'>›</button>
       </div>

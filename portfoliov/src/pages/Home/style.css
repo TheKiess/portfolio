@@ -181,7 +181,7 @@
   color: white;
 }
 
-.nome{
+.title{
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -193,4 +193,48 @@
   font-size: 1.1rem;
   line-height: 1.6;
   color: #ccc;
+}
+
+#experiences{
+  display: grid;
+  grid-template-columns: 180px auto;
+  grid-template-rows: 80px auto;
+  min-width: 600px;
+  min-height: 600px;
+  margin: 80px;
+  grid-template-areas: 
+  "s1 s2"
+  "s1 s3";
+  border: solid;
+}
+
+#separator1{
+  display: grid;
+  grid-area: s1;
+  grid-template-areas: 
+  "p1"
+  "p2";
+  grid-template-columns: auto;
+  background: blue;
+  border: solid;
+}
+
+#separator2{
+  grid-area: s2;
+  background: #00ccff;
+  border: solid;
+}
+
+#separator3{
+  grid-area: s3;
+  background: #1f1c2c;
+  border: solid;
+}
+
+#experience1{
+  grid-area: p1;
+}
+
+#experience2{
+  grid-area: p2;
 }
