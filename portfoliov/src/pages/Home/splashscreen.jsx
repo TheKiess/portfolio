@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
 const mensagens = [
-  'JavaScript',
-  'Python',
-  'React',
-  'C++',
-  'PostgreSQL',
-  'Frontend & Backend',
-  'Aprendizado Contínuo 🚀',
-  'Git & GitHub'
+  'JavaScript;',
+  'C++;',
+  'Python;',
+  'PostgreSQL;',
+  'Node.JS;',
+  'React;',
+  'Frontend & Backend;',
+  'Git & GitHub.'
 ];
 
 function SplashScreen({ onFinish }) {
@@ -23,14 +23,14 @@ function SplashScreen({ onFinish }) {
         setIndex(prev => {
           if (prev === mensagens.length - 1) {
             clearInterval(interval);
-            setTimeout(() => setStep(2), 2000);
+            setTimeout(() => setStep(2), 2500);
           }
           return prev + 1;
         });
       }, 300);
       return () => clearInterval(interval);
     } else if (step === 2) {
-      const timer = setTimeout(() => onFinish(), 4000);
+      const timer = setTimeout(() => onFinish(), 4300);
       return () => clearTimeout(timer);
     }
   }, [step, onFinish]);
@@ -46,7 +46,8 @@ function SplashScreen({ onFinish }) {
             exit={{ x: -800, opacity: 0 }}
             transition={{ duration: 1.2 }}
           >
-            <h1 className="splash-title">Bem-vindo ao meu portfólio</h1>
+            <h1 className="splash-title">Bem-vindo ao meu portfólio!</h1>
+            <h2 className="splash-subtitle">Tecnologias com as quais costumo trabalhar:</h2>
             <div className="linguagens-container">
               <ul className="coluna">
                 {mensagens.slice(0, 4).map((msg, i) => (

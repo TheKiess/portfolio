@@ -18,7 +18,7 @@
 }
 
 .splash-title{
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 30px;
   animation: typing 1.5s steps(40, end);
@@ -30,6 +30,24 @@
   margin-right: auto;
 }
 
+.splash-subtitle{
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out 80ms forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes typing{
   from {width: 0}
   to {width: 100%}
@@ -37,6 +55,7 @@
 
 .linguagens-container{
   display: flex;
+  font-size: 1.2rem;
   justify-content: center;
   gap: 40px;
 }
@@ -195,40 +214,41 @@
   color: #ccc;
 }
 
-#experiences{
+#experiences {
   display: grid;
-  grid-template-columns: 180px auto;
-  grid-template-rows: 80px auto;
-  min-width: 600px;
-  min-height: 600px;
-  margin: 80px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 100px auto;
   grid-template-areas: 
-  "s1 s2"
-  "s1 s3";
-  border: solid;
+    "s1 s2"
+    "s1 s3";
+  width: 85%;
+  max-width: 900px;
+  min-height: 400px;
+  margin: 40px auto;
+  border: solid 1px rgba(255,255,255,0.3);
 }
 
-#separator1{
-  display: grid;
+#separator1 {
   grid-area: s1;
+  display: grid;
   grid-template-areas: 
-  "p1"
-  "p2";
-  grid-template-columns: auto;
+    "p1"
+    "p2";
   background: blue;
-  border: solid;
+  padding: 1rem;
+  border: solid 1px rgba(255,255,255,0.3);
 }
 
-#separator2{
+#separator2 {
   grid-area: s2;
   background: #00ccff;
-  border: solid;
+  border: solid 1px rgba(255,255,255,0.3);
 }
 
-#separator3{
+#separator3 {
   grid-area: s3;
   background: #1f1c2c;
-  border: solid;
+  border: solid 1px rgba(255,255,255,0.3);
 }
 
 #experience1{
@@ -237,4 +257,15 @@
 
 #experience2{
   grid-area: p2;
+}
+
+@media (max-width: 768px) {
+  #experiences {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+      "s1"
+      "s2"
+      "s3";
+  }
 }
