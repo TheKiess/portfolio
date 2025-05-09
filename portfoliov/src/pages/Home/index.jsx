@@ -5,26 +5,45 @@ import './style.css';
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [activeExperience, setActiveExperience] = useState(null);
+  const [animating, setAnimating] = useState(false);
 
   const experiences = {
     exercito: (
-      <ul>
-        <li className='txt_exp'>Gerenciamento de tarefas e documentação online</li>
-        <li className='txt_exp'>Invenção de banners, placas e quadros murais</li>
-        <li className='txt_exp'>Desenvolvimento de materiais gráficos digitais</li>
-        <li className='txt_exp'>Criação e automação de processos administrativos</li>
-        <li className='txt_exp'>Motorista de viaturas</li>
+      <ul className='txtUl'>
+        <li className='txtExp'>Gerenciamento de tarefas e documentação online;</li>
+        <li className='txtExp'>Invenção de banners, placas e quadros murais;</li>
+        <li className='txtExp'>Desenvolvimento de materiais gráficos digitais;</li>
+        <li className='txtExp'>Criação e automação de processos administrativos;</li>
+        <li className='txtExp'>Motorista de viaturas.</li>
       </ul>
     ),
     evo: (
-      <ul>
-        <li className='txt_exp'>Montagem dos equipamentos, configurações e testes</li>
-        <li className='txt_exp'>Organização de mercadorias</li>
-        <li className='txt_exp'>Manuseio e inserção em dashboard</li>
-        <li className='txt_exp'>Programação com pacote Office</li>
-        <li className='txt_exp'>Atendimento ao cliente e suporte via AnyDesk (SaaS)</li>
+      <ul className='txtUl'>
+        <li className='txtExp'>Montagem dos equipamentos, configurações e testes;</li>
+        <li className='txtExp'>Organização de mercadorias;</li>
+        <li className='txtExp'>Manuseio e inserção em dashboard;</li>
+        <li className='txtExp'>Programação com pacote Office;</li>
+        <li className='txtExp'>Atendimento ao cliente e suporte via AnyDesk (SaaS).</li>
       </ul>
     )
+  };
+  
+  const experiencesDate = {
+    exercitoDate: (
+      <h3 className='txtDate'>4 anos</h3>
+    ),
+    evoDate: (
+      <h3 className="txtDate">7 meses</h3>
+    )
+  };
+
+  const handleExperienceClick = (exp) => {
+    if (exp === activeExperience) return;
+    setAnimating(false);
+    setTimeout(() => {
+      setActiveExperience(exp);
+      setAnimating(true);
+    }, 10);
   };
 
   if (showSplash) {
@@ -52,14 +71,24 @@ function Home() {
           <h2 className='title'>Experiências</h2>
           <div id='experiences'>
             <div id="separator1">
-              <h4 id='experience1' onClick={() => setActiveExperience('exercito')}>Exército Brasileiro</h4>
-              <h4 id='experience2' onClick={() => setActiveExperience('evo')}>EVO Automações</h4>
+              <h4
+                id='experience1'
+                className={activeExperience === 'exercito' ? 'active' : ''}
+                onClick={() => handleExperienceClick('exercito')}
+              >
+                Exército Brasileiro
+              </h4>
+              <h4
+                id='experience2'
+                className={activeExperience === 'evo' ? 'active' : ''}
+                onClick={() => handleExperienceClick('evo')}>
+                EVO Automações
+              </h4>
             </div>
-            <div id="separator2">
-            </div>
+            <div id="separator2">{activeExperience && experiencesDate[`${activeExperience}Date`]}</div>
             <div id="separator3">
-            {activeExperience && (
-                <div className='experience-details'>
+              {activeExperience && (
+                <div className={`experience-details ${animating ? 'apaga' : ''}`}>
                   {experiences[activeExperience]}
                 </div>
               )}
