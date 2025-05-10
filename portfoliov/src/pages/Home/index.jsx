@@ -59,7 +59,7 @@ function Home() {
           <a href="#contato">Contato</a>
         </nav>
       </header>
-      <div id="content">
+      <div className="content">
         <button className='buttonLeft'>‹</button>
         <div className='pages'>
           <h2 className='title'>Frank Kiess</h2>
@@ -67,7 +67,7 @@ function Home() {
             Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
             Já trabalhei com frontend, backend, manipulação de banco de dados com PGAdmin e algoritmos em Python.
             Atualmente estou me aprofundando em C++ e buscando oportunidades de intercâmbio para crescer profissionalmente.
-          </p><br/>
+          </p>
           <h2 className='title'>Experiências</h2>
           <div id='experiences'>
             <div id="separator1">
