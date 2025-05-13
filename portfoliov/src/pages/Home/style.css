@@ -349,3 +349,23 @@
   color: #ff4d4d;
   text-shadow: 0 0 5px rgba(255, 77, 77, 0.7);
 }
+
+.skipButton{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.8;
+  transition: background-color 0.3s ease;
+}
+
+.skipButton:hover{
+  background-color: #444;
+}

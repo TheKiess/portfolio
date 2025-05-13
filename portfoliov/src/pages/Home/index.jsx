@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SplashScreen from './splashscreen';
 import './style.css';
+import '../../index.css';
 
 function Home() {
   const [showSplash, setShowSplash] = useState(true);

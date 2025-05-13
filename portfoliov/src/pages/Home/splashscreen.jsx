@@ -49,6 +49,7 @@ function SplashScreen({ onFinish }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
         >
+          <button className="skipButton" onClick={onFinish}>Pular animação!</button>
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
