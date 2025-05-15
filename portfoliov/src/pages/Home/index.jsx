@@ -1,38 +1,35 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SplashScreen from './splashscreen';
 import './style.css';
-import '../../index.css';
 
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [activeExperience, setActiveExperience] = useState(null);
   const [animating, setAnimating] = useState(false);
 
-  const experiences = {
-    exercito: (
-      <ul className='txtUl'>
-        <li className='txtExp'>Gerenciamento de tarefas e documentação online;</li>
-        <li className='txtExp'>Invenção de banners, placas e quadros murais;</li>
-        <li className='txtExp'>Desenvolvimento de materiais gráficos digitais;</li>
-        <li className='txtExp'>Criação e automação de processos administrativos;</li>
-        <li className='txtExp'>Motorista de viaturas.</li>
-      </ul>
-    ),
-    evo: (
-      <ul className='txtUl'>
-        <li className='txtExp'>Montagem dos equipamentos, configurações e testes;</li>
-        <li className='txtExp'>Organização de mercadorias;</li>
-        <li className='txtExp'>Manuseio e inserção em dashboard;</li>
-        <li className='txtExp'>Programação com pacote Office;</li>
-        <li className='txtExp'>Atendimento ao cliente e suporte via AnyDesk (SaaS).</li>
-      </ul>
-    )
-  };
-
-  const experiencesDate = {
-    exercitoDate: <h3 className='txtDate'>4 anos</h3>,
-    evoDate: <h3 className="txtDate">7 meses</h3>
+  const experienceList = {
+    exercito: {
+      date: '4 anos',
+      details: [
+        'Gerenciamento de tarefas e documentação online;',
+        'Invenção de banners, placas e quadros murais;',
+        'Desenvolvimento de materiais gráficos digitais;',
+        'Criação e automação de processos administrativos;',
+        'Motorista de viaturas.',
+      ],
+    },
+    evo: {
+      date: '7 meses',
+      details: [
+        'Montagem dos equipamentos, configurações e testes;',
+        'Organização de mercadorias;',
+        'Manuseio e inserção em dashboard;',
+        'Programação com pacote Office;',
+        'Atendimento ao cliente e suporte via AnyDesk (SaaS).',
+      ],
+    },
   };
 
   const handleExperienceClick = (exp) => {
@@ -44,13 +41,19 @@ function Home() {
     }, 10);
   };
 
+  const scrollLeft = () => {
+    document.querySelector('.pages')?.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    document.querySelector('.pages')?.scrollBy({ left: 300, behavior: 'smooth' });
+  };
+
   return (
     <>
       <AnimatePresence>
         {showSplash && (
-          <SplashScreen
-            onFinish={() => setShowSplash(false)}
-          />
+          <SplashScreen onFinish={() => setShowSplash(false)} />
         )}
       </AnimatePresence>
 
@@ -64,55 +67,65 @@ function Home() {
             transition={{ duration: 1.2, ease: 'easeInOut' }}
             className="container"
           >
-            <header className='cabecalho'>
+            <header className="cabecalho">
               <nav>
-                <a href="#sobre">Sobre</a>
+                <Link to="/sobre">Sobre</Link>
                 <a href="#projetos">Projetos</a>
                 <a href="#contato">Contato</a>
               </nav>
             </header>
+
             <div className="content">
-              <button className='buttonLeft'>‹</button>
-              <div className='pages'>
-                <h2 className='title'>Frank Kiess</h2>
-                <p className='descricao'>
+              <button className="buttonLeft" onClick={scrollLeft}>‹</button>
+
+              <div className="pages">
+                <h2 className="title">Frank Kiess</h2>
+                <p className="descricao">
                   Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
                   Já trabalhei com frontend, backend, manipulação de banco de dados com PGAdmin e algoritmos em Python.
                   Atualmente estou me aprofundando em C++ e buscando oportunidades de intercâmbio para crescer profissionalmente.
                 </p>
-                <h2 className='title'>Experiências</h2>
-                <div id='experiences'>
+
+                <h2 className="title">Experiências</h2>
+                <div id="experiences">
                   <div id="separator1">
                     <h4
-                      id='experience1'
+                      id="experience1"
                       className={activeExperience === 'exercito' ? 'active' : ''}
                       onClick={() => handleExperienceClick('exercito')}
                     >
                       Exército Brasileiro
                     </h4>
                     <h4
-                      id='experience2'
+                      id="experience2"
                       className={activeExperience === 'evo' ? 'active' : ''}
                       onClick={() => handleExperienceClick('evo')}
                     >
                       EVO Automações
                     </h4>
                   </div>
+
                   <div id="separator2">
                     {activeExperience
-                      ? experiencesDate[`${activeExperience}Date`]
+                      ? <h3 className="txtDate">{experienceList[activeExperience].date}</h3>
                       : 'Para mais informações clique à esquerda!'}
                   </div>
+
                   <div id="separator3">
                     {activeExperience && (
                       <div className={`experience-details ${animating ? 'apaga' : ''}`}>
-                        {experiences[activeExperience]}
+                        <ul className="txtUl">
+                          {experienceList[activeExperience].details.map((item, index) => (
+                            <li key={index} className="txtExp">{item}</li>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </div>
                 </div>
               </div>
-              <button className='buttonRight'>›</button>
+
+              <button className="buttonRight" onClick={scrollRight}>›</button>
             </div>
           </motion.div>
         )}

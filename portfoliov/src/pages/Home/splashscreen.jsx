@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
+import Eu from '../../assets/eu.jpeg' 
 
 const mensagens = [
   'JavaScript;',
@@ -87,7 +88,7 @@ function SplashScreen({ onFinish }) {
               >
                 <div className="sobre-container">
                   <div className="foto">
-                    <img src="src/assets/eu.jpeg" alt="Foto sobre minha pessoa" />
+                    <img src={Eu} alt="Foto sobre minha pessoa" />
                   </div>
                   <div className="info">
                     <h2>Frank Kiess</h2>
