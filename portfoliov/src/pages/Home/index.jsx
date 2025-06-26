@@ -10,6 +10,18 @@ function Home() {
   const [animating, setAnimating] = useState(false);
 
   const experienceList = {
+    atua: {
+      date: 'Atualmente',
+      details: [
+        'Atuação como estagiário de desenvolvimento na Atua by Nstech;',
+        'Utilização de PHP para desenvolvimento backend;',
+        'Trabalho com containers usando Docker;',
+        'Manipulação de banco de dados PostgreSQL;',
+        'Versionamento de código com GIT;',
+        'Ambiente de desenvolvimento Linux (Ubuntu);',
+        'Integração com tecnologias JavaScript.'
+      ],
+    },
     exercito: {
       date: '4 anos',
       details: [
@@ -82,13 +94,20 @@ function Home() {
                 <h2 className="title">Frank Kiess</h2>
                 <p className="descricao">
                   Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
-                  Já trabalhei com frontend, backend, manipulação de banco de dados com PGAdmin e algoritmos em Python.
-                  Atualmente estou me aprofundando em C++ e buscando oportunidades de intercâmbio para crescer profissionalmente.
+                  Atualmente, trabalho como estagiário de desenvolvimento na Atua by Nstech, utilizando tecnologias como PHP, Docker, JavaScript, PostgreSQL, GIT e Ubuntu.
+                  Já atuei com frontend, backend, banco de dados (PGAdmin) e algoritmos em Python. Também estou me aprofundando em C++ e buscando oportunidades de intercâmbio para meu crescimento profissional.
                 </p>
 
                 <h2 className="title">Experiências</h2>
                 <div id="experiences">
                   <div id="separator1">
+                    <h4
+                      id="experience0"
+                      className={activeExperience === 'atua' ? 'active' : ''}
+                      onClick={() => handleExperienceClick('atua')}
+                    >
+                      Atua by Nstech
+                    </h4>
                     <h4
                       id="experience1"
                       className={activeExperience === 'exercito' ? 'active' : ''}

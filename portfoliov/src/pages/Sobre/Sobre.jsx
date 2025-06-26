@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './sobre.css';
 
 function Sobre() {
   return (
@@ -17,7 +18,7 @@ function Sobre() {
           <div className="perfil-container">
             <img 
               src="/imagens/foto-perfil-placeholder.jpg" 
-              alt="Foto de Frank Kiess" 
+              alt="foto da minha pessoa" 
               className="perfil-foto"
             />
             <div className="descricao">
@@ -30,6 +31,10 @@ function Sobre() {
                 Desde o início da minha graduação, busco evoluir constantemente como desenvolvedor, explorando diferentes áreas da computação.
                 Já trabalhei com <strong>frontend</strong>, <strong>backend</strong>, <strong>bancos de dados relacionais</strong> como o <strong>PostgreSQL</strong> e ferramentas de visualização como o <strong>pgAdmin</strong>. 
                 Atualmente, estou me aprofundando em <strong>C++</strong> e desenvolvendo este portfólio, onde venho aplicando meus conhecimentos em design de interface e integração com banco de dados.
+              </p>
+              <p>
+                No momento, estou atuando como <strong>estagiário de desenvolvimento</strong> na <strong>Atua by Nstech</strong>, uma empresa de tecnologia que tem me proporcionado um ambiente de aprendizado constante e desafiador. 
+                Lá, trabalho com <strong>PHP</strong>, <strong>JavaScript</strong>, <strong>Docker</strong>, <strong>PostgreSQL</strong>, <strong>GIT</strong> e <strong>Ubuntu</strong>, ampliando minha experiência em desenvolvimento backend e infraestrutura.
               </p>
             </div>
           </div>
@@ -55,7 +60,7 @@ function Sobre() {
             Tenho grande interesse em oportunidades de <strong>intercâmbio</strong>, pois vejo nelas uma chance de expandir minha visão de mundo, aprender novas culturas e aplicar minhas habilidades em contextos globais.
           </p>
           <p className="descricao">
-            Este portfólio é um reflexo do meu desenvolvimento como programador, e está em constante construção. Em breve, trarei novas atualizações, fotos reais e mais projetos práticos que venho desenvolvendo ao longo da graduação.
+            Este portfólio é um reflexo do meu desenvolvimento como programador, e está em constante construção. Em breve, trarei novas atualizações, fotos reais e mais projetos práticos que venho desenvolvendo ao longo da graduação e do estágio.
           </p>
         </div>
       </div>
