@@ -8,7 +8,7 @@ function Sobre() {
         <nav>
           <Link to="/">Início</Link>
           <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
+          <Link to="/contato">Contato</Link>
         </nav>
       </header>
 

@@ -83,7 +83,7 @@ function Home() {
               <nav>
                 <Link to="/sobre">Sobre</Link>
                 <a href="#projetos">Projetos</a>
-                <a href="#contato">Contato</a>
+                <Link to="/contato">Contato</Link>
               </nav>
             </header>
 

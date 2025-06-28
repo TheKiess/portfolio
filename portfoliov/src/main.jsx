@@ -1,10 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import Home from './pages/Home'
-import Sobre from './pages/Sobre/Sobre'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import Home from './pages/Home';
+import Sobre from './pages/Sobre/Sobre';
+import Contato from './pages/Contato/Contato';
+import './index.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/sobre",
     element: <Sobre />,
+  },
+  {
+    path: "/contato",
+    element: <Contato />,
   },
 ]);
 
