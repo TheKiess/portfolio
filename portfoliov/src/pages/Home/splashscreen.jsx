@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
-import Eu from '../../assets/eu.jpeg' 
+import Eu from '../../../public/img/eu.jpeg' 
 
 const mensagens = [
   'JavaScript;',

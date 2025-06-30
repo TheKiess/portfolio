@@ -1,8 +1,26 @@
+import { useRef } from 'react';
+import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './contato.module.css';
 
 function Contato() {
+  const form = useRef();
+
+  const enviarEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+      .then(() => {
+        alert('Mensagem enviada com sucesso!');
+        form.current.reset();
+      })
+      .catch((err) => {
+        console.error('Erro ao enviar:', err);
+        alert('Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.');
+      });
+  };
+
   return (
     <>
       <header className="cabecalho">
@@ -12,10 +30,11 @@ function Contato() {
           <a href="#projetos">Projetos</a>
         </nav>
       </header>
+
       <div className={styles.content}>
         <div className={styles.contactCard}>
           <h2 className={styles.title}>Entre em Contato:</h2>
-          
+
           <div className={styles.item}>
             <FaEnvelope className={styles.icon} />
             <strong>Email:</strong> frank_kiess.junior@hotmail.com
@@ -35,9 +54,20 @@ function Contato() {
             <FaMapMarkerAlt className={styles.icon} />
             <strong>Endereço:</strong> RS/Brasil
           </div>
+
+          <form ref={form} onSubmit={enviarEmail} className={styles.form}>
+            <label>Nome:</label>
+            <input type="text" name="fromName" required />
+            <label>Email:</label>
+            <input type="email" name="replyTo" required />
+            <label>Mensagem:</label>
+              <textarea name="message" rows="5" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+          </form>
         </div>
       </div>
     </>
   );
 }
+
 export default Contato;

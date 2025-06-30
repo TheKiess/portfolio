@@ -33,7 +33,7 @@ function Home() {
       ],
     },
     evo: {
-      date: '7 meses',
+      date: '9 meses',
       details: [
         'Montagem dos equipamentos, configurações e testes;',
         'Organização de mercadorias;',
