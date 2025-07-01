@@ -1,4 +1,54 @@
-div.content{
-    height: 100%;
-    margin-top: 35px;
+.perfilFoto{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4f46e5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.perfilFoto:hover{
+  transform: scale(1.07);
+}
+
+.universidade-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.universidade-foto{
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.universidade-foto:hover{
+  transform: scale(1.05);
+}
+
+.descricaoSobre{
+  margin-top: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 800px;
+  text-align: justify;
+  padding: 0 10px;
+}
+
+.descricaoSobre span{
+  border-right: 2px solid #4f46e5;
+  animation: blinkCursor 0.8s steps(40) infinite;
+}
+
+@keyframes blinkCursor{
+  from {border-color: transparent;}
+  to {border-color: #4f46e5;}
 }
