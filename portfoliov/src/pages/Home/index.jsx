@@ -82,7 +82,7 @@ function Home() {
             <header className="cabecalho">
               <nav>
                 <Link to="/sobre">Sobre</Link>
-                <a href="#projetos">Projetos</a>
+                <Link to="/projetos">Projetos</Link>
                 <Link to="/contato">Contato</Link>
               </nav>
             </header>

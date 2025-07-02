@@ -56,7 +56,7 @@ Essa vivência torna minha jornada acadêmica ainda mais enriquecedora e inspira
       <header className="cabecalho">
         <nav>
           <Link to="/">Início</Link>
-          <Link href="/projetos">Projetos</Link>
+          <Link to="/projetos">Projetos</Link>
           <Link to="/contato">Contato</Link>
         </nav>
       </header>

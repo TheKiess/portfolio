@@ -1,0 +1,36 @@
+.sGestao{
+  background-color: #fefefe1c;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  transition: transform 0.3s ease;
+}
+
+.sGestao:hover{
+  transform: translateY(-5px);
+}
+
+.sGestaoDescricao{
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.sGestaoLista, .sGestaoTecnologias{
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sGestaoLista li, .sGestaoTecnologias li{
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: #696969;
+  list-style: none;
+}
+
+strong{
+  color: #2d6cdf;
+}
