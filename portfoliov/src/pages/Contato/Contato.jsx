@@ -27,7 +27,7 @@ function Contato() {
         <nav>
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
-          <a href="#projetos">Projetos</a>
+          <Link to="/projetos">Projetos</Link>
         </nav>
       </header>
 

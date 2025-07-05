@@ -1,7 +1,35 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './projeto.css';
 
+const imagens = [
+  { src: '/img/1.png', legenda: 'Tela de Login' },
+  { src: '/img/2.png', legenda: 'Tela Inicial' },
+  { src: '/img/3.png', legenda: 'Controle de Valores - Parte 1' },
+  { src: '/img/4.png', legenda: 'Controle de Valores - Parte 2' },
+  { src: '/img/5.png', legenda: 'Cadastro de Pessoas' },
+  { src: '/img/6.png', legenda: 'Gestão de Serviços e Produtos' },
+  { src: '/img/7.png', legenda: 'DER - Modelo de Dados' }
+];
+
 export default function Projetos() {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState('right');
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setDirection('right');
+      setIndex((prev) => (prev + 1) % imagens.length);
+    }, 3000);
+
+    return () => clearInterval(intervalo);
+  }, []);
+
+  const trocarImagem = (i) => {
+    setDirection(i > index ? 'right' : 'left');
+    setIndex(i);
+  };
+
   return (
     <>
       <header className="cabecalho">
@@ -24,8 +52,8 @@ export default function Projetos() {
             <p className="sGestaoDescricao">
               A interface gráfica foi construída com a biblioteca <strong>Tkinter</strong>, e todas as informações são armazenadas com <strong>SQLite</strong>.
             </p>
-            <p className="sGestaoDescricao">Entre os principais recursos estão:</p>
 
+            <p className="sGestaoDescricao">Entre os principais recursos estão:</p>
             <ul className="sGestaoLista">
               <li>✅ Cadastro e edição de pessoas;</li>
               <li>✅ Registro de serviços com controle de status;</li>
@@ -45,6 +73,25 @@ export default function Projetos() {
             <p className="sGestaoDescricao">
               O objetivo é facilitar o dia a dia do ateliê com uma solução prática e adaptada ao negócio familiar.
             </p>
+
+            {/* Slideshow com animação e indicadores */}
+            <div className={`slideshow imagem-${direction}`}>
+              <img
+                key={index}
+                src={imagens[index].src}
+                alt={imagens[index].legenda}
+              />
+              <p>{imagens[index].legenda}</p>
+              <div className="indicadores">
+                {imagens.map((_, i) => (
+                  <span
+                    key={i}
+                    onClick={() => trocarImagem(i)}
+                    className={`bolinha ${i === index ? 'ativo' : ''}`}
+                  />
+                ))}
+              </div>
+            </div>
           </section>
         </div>
       </div>
