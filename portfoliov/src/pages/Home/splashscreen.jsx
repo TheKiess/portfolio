@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
-import Eu from '../../../public/img/eu.jpeg' 
+import Eu from '../../../public/img/eu.jpeg';
 
-const mensagens = [
+const tecnologias = [
   'JavaScript;',
   'C++;',
   'Python;',
+  'PHP;',
   'PostgreSQL;',
   'Node.JS;',
   'React;',
-  'Frontend & Backend;',
-  'Git & GitHub.'
+  'Docker;',
+  'Git & GitHub;',
+  'Frontend & Backend;'
 ];
 
 function SplashScreen({ onFinish }) {
@@ -22,7 +24,7 @@ function SplashScreen({ onFinish }) {
     if (step === 1) {
       const interval = setInterval(() => {
         setIndex(prev => {
-          if (prev === mensagens.length - 1) {
+          if (prev === tecnologias.length - 1) {
             clearInterval(interval);
             setTimeout(() => setStep(2), 2500);
           }
@@ -31,7 +33,7 @@ function SplashScreen({ onFinish }) {
       }, 300);
       return () => clearInterval(interval);
     } else if (step === 2) {
-      const timer = setTimeout(() => setStep(3), 4300);
+      const timer = setTimeout(() => setStep(3), 5000);
       return () => clearTimeout(timer);
     } else if (step === 3) {
       const timer = setTimeout(() => onFinish(), 1000);
@@ -50,7 +52,8 @@ function SplashScreen({ onFinish }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
         >
-          <button className="skipButton" onClick={onFinish}>Pular animação!</button>
+          <button className="skipButton" onClick={onFinish}>Pular animação</button>
+
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
@@ -64,14 +67,17 @@ function SplashScreen({ onFinish }) {
                 <h2 className="splash-subtitle">Tecnologias com as quais costumo trabalhar:</h2>
                 <div className="linguagens-container">
                   <ul className="coluna">
-                    {mensagens.slice(0, 4).map((msg, i) => (
+                    {tecnologias.slice(0, Math.ceil(tecnologias.length / 2)).map((msg, i) => (
                       <li key={i} className={`fade-in ${i <= index ? 'show' : ''}`} style={{ '--i': i }}>{msg}</li>
                     ))}
                   </ul>
                   <ul className="coluna">
-                    {mensagens.slice(4).map((msg, i) => (
-                      <li key={i + 4} className={`fade-in ${i + 4 <= index ? 'show' : ''}`} style={{ '--i': i + 4 }}>{msg}</li>
-                    ))}
+                    {tecnologias.slice(Math.ceil(tecnologias.length / 2)).map((msg, i) => {
+                      const idx = i + Math.ceil(tecnologias.length / 2);
+                      return (
+                        <li key={idx} className={`fade-in ${idx <= index ? 'show' : ''}`} style={{ '--i': idx }}>{msg}</li>
+                      );
+                    })}
                   </ul>
                 </div>
               </motion.div>
@@ -95,7 +101,8 @@ function SplashScreen({ onFinish }) {
                     <p><strong>Cidade:</strong> Passo Fundo</p>
                     <p><strong>Idade:</strong> 24 anos</p>
                     <p><strong>Universidade:</strong> UPF</p>
-                    <p><strong>Curso:</strong> 2º semestre de Ciência da Computação</p>
+                    <p><strong>Curso:</strong> Ciência da Computação (2º semestre)</p>
+                    <p><strong>Estudando:</strong> PHP, Docker e Git</p>
                   </div>
                 </div>
               </motion.div>

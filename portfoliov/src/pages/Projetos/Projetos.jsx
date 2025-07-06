@@ -20,7 +20,7 @@ export default function Projetos() {
     const intervalo = setInterval(() => {
       setDirection('right');
       setIndex((prev) => (prev + 1) % imagens.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(intervalo);
   }, []);
