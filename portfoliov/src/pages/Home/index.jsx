@@ -88,7 +88,6 @@ function Home() {
             </header>
 
             <div className="content">
-              <button className="buttonLeft" onClick={scrollLeft}>‹</button>
 
               <div className="pages">
                 <h2 className="title">Frank Kiess</h2>
@@ -143,8 +142,6 @@ function Home() {
                   </div>
                 </div>
               </div>
-
-              <button className="buttonRight" onClick={scrollRight}>›</button>
             </div>
           </motion.div>
         )}

@@ -74,7 +74,7 @@ export default function Projetos() {
               O objetivo é facilitar o dia a dia do ateliê com uma solução prática e adaptada ao negócio familiar.
             </p>
 
-            {/* Slideshow com animação e indicadores */}
+            {}
             <div className={`slideshow imagem-${direction}`}>
               <img
                 key={index}
