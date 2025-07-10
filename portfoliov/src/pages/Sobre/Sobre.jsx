@@ -4,14 +4,60 @@ import './sobre.css';
 import eu from '../../../public/img/eu2.jpeg';
 import faculdade from '../../../public/img/faculdade.jpg';
 
+// Hook personalizado para efeito de digitação
+function useTypewriterEffect(trigger, textoCompleto) {
+  const [textoAtual, setTextoAtual] = useState('');
+
+  useEffect(() => {
+    if (trigger && textoAtual.length < textoCompleto.length) {
+      const timeout = setTimeout(() => {
+        setTextoAtual(textoCompleto.slice(0, textoAtual.length + 1));
+      }, 15);
+      return () => clearTimeout(timeout);
+    }
+  }, [trigger, textoAtual, textoCompleto]);
+
+  return [textoAtual, setTextoAtual];
+}
+
+// Componente de bloco com imagem e texto digitado
+function BlocoComImagem({
+  imagem,
+  alt,
+  textoCompleto,
+  textoAtual,
+  ativado,
+  ativar,
+  resetarTexto,
+  placeholder,
+  classImagem,
+  classTexto,
+}) {
+  return (
+    <div className="perfil-container">
+      <img
+        src={imagem}
+        alt={alt}
+        className={classImagem}
+        width={350}
+        onClick={() => {
+          ativar();
+          resetarTexto('');
+        }}
+      />
+      <div className={classTexto}>
+        {ativado ? (
+          <p style={{ whiteSpace: 'pre-line' }}>{textoAtual}</p>
+        ) : (
+          <p className="placeholder-text">{placeholder}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Sobre() {
-  const [showPerfilText, setShowPerfilText] = useState(false);
-  const [displayedPerfilText, setDisplayedPerfilText] = useState('');
-
-  const [showFaculdadeText, setShowFaculdadeText] = useState(false);
-  const [displayedFaculdadeText, setDisplayedFaculdadeText] = useState('');
-
-  const perfilTexto = `
+  const textoPerfil = `
 Olá! Me chamo Frank Kiess, tenho 24 anos e sou estudante de Ciência da Computação na Universidade de Passo Fundo (UPF), 
 no Rio Grande do Sul. Sou apaixonado por tecnologia, inovação e pelo poder da programação em transformar ideias em soluções reais.
 
@@ -23,33 +69,19 @@ No momento, estou atuando como estagiário de desenvolvimento na Atua by Nstech,
 Lá, trabalho com PHP, JavaScript, Docker, PostgreSQL, GIT e Ubuntu, ampliando minha experiência em desenvolvimento backend e infraestrutura.
 `;
 
-  const faculdadeTexto = `
+  const textoFaculdade = `
 Tenho muito orgulho de estudar na UPF, uma universidade que me proporciona base teórica sólida e contato com tecnologias atuais.
 A infraestrutura, os professores e os projetos que participo me preparam para os desafios reais do mercado. 
 
 Além das disciplinas práticas, participo de atividades extracurriculares, projetos de extensão e grupos de estudo com colegas engajados. 
 Essa vivência torna minha jornada acadêmica ainda mais enriquecedora e inspiradora.
-  `;
+`;
 
-  // Efeito para perfil
-  useEffect(() => {
-    if (showPerfilText && displayedPerfilText.length < perfilTexto.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedPerfilText(perfilTexto.slice(0, displayedPerfilText.length + 1));
-      }, 15);
-      return () => clearTimeout(timeout);
-    }
-  }, [showPerfilText, displayedPerfilText]);
+  const [ativarPerfil, setAtivarPerfil] = useState(false);
+  const [textoDigitadoPerfil, setTextoDigitadoPerfil] = useTypewriterEffect(ativarPerfil, textoPerfil);
 
-  // Efeito para universidade
-  useEffect(() => {
-    if (showFaculdadeText && displayedFaculdadeText.length < faculdadeTexto.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedFaculdadeText(faculdadeTexto.slice(0, displayedFaculdadeText.length + 1));
-      }, 15);
-      return () => clearTimeout(timeout);
-    }
-  }, [showFaculdadeText, displayedFaculdadeText]);
+  const [ativarFaculdade, setAtivarFaculdade] = useState(false);
+  const [textoDigitadoFaculdade, setTextoDigitadoFaculdade] = useTypewriterEffect(ativarFaculdade, textoFaculdade);
 
   return (
     <>
@@ -64,50 +96,34 @@ Essa vivência torna minha jornada acadêmica ainda mais enriquecedora e inspira
       <div className="content">
         <div className="pages">
           <h2 className="title">Sobre Mim</h2>
-          <div className="perfil-container">
-            <img
-              src={eu}
-              alt="foto da minha pessoa"
-              className="perfilFoto"
-              width={350}
-              onClick={() => {
-                setShowPerfilText(true);
-                setDisplayedPerfilText('');
-              }}
-            />
-            <div className="descricaoSobre">
-              {showPerfilText ? (
-                <p style={{ whiteSpace: 'pre-line' }}>{displayedPerfilText}</p>
-              ) : (
-                <p style={{ fontStyle: 'italic', opacity: 0.6 }}>
-                  Clique na minha foto para saber mais sobre mim.
-                </p>
-              )}
-            </div>
-          </div>
+
+          <BlocoComImagem
+            imagem={eu}
+            alt="foto da minha pessoa"
+            textoCompleto={textoPerfil}
+            textoAtual={textoDigitadoPerfil}
+            ativado={ativarPerfil}
+            ativar={() => setAtivarPerfil(true)}
+            resetarTexto={setTextoDigitadoPerfil}
+            placeholder="Clique na minha foto para saber mais sobre mim."
+            classImagem="perfilFoto"
+            classTexto="descricaoSobre"
+          />
 
           <h2 className="title">Universidade</h2>
-          <div className="universidade-container">
-            <img
-              src={faculdade}
-              alt="Universidade de Passo Fundo (UPF)"
-              className="universidade-foto"
-              width={350}
-              onClick={() => {
-                setShowFaculdadeText(true);
-                setDisplayedFaculdadeText('');
-              }}
-            />
-            <p className="descricao">
-              {showFaculdadeText ? (
-                <span style={{ whiteSpace: 'pre-line' }}>{displayedFaculdadeText}</span>
-              ) : (
-                <span style={{ fontStyle: 'italic', opacity: 0.6 }}>
-                  Clique na imagem da universidade para conhecer mais da minha experiência acadêmica.
-                </span>
-              )}
-            </p>
-          </div>
+
+          <BlocoComImagem
+            imagem={faculdade}
+            alt="Universidade de Passo Fundo (UPF)"
+            textoCompleto={textoFaculdade}
+            textoAtual={textoDigitadoFaculdade}
+            ativado={ativarFaculdade}
+            ativar={() => setAtivarFaculdade(true)}
+            resetarTexto={setTextoDigitadoFaculdade}
+            placeholder="Clique na imagem da universidade para conhecer mais da minha experiência acadêmica."
+            classImagem="universidade-foto"
+            classTexto="descricao"
+          />
 
           <h2 className="title">Objetivos</h2>
           <p className="descricao">
