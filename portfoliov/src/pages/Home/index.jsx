@@ -92,7 +92,7 @@ function Home() {
               <div className="pages">
                 <h2 className="title">Frank Kiess</h2>
                 <p className="descricao">
-                  Sou estudante de Ciência da Computação no 2º semestre, apaixonado por tecnologia e desenvolvimento.
+                  Sou estudante de Ciência da Computação no 3º semestre, apaixonado por tecnologia e desenvolvimento.
                   Atualmente, trabalho como estagiário de desenvolvimento na Atua by Nstech, utilizando tecnologias como PHP, Docker, JavaScript, PostgreSQL, GIT e Ubuntu.
                   Já atuei com frontend, backend, banco de dados (PGAdmin) e algoritmos em Python. Também estou me aprofundando em C++ e buscando oportunidades de intercâmbio para meu crescimento profissional.
                 </p>
