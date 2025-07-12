@@ -1,26 +1,34 @@
-# Portfólio React
+🚀 Portfólio Pessoal - React
 
-Este é o meu portfólio pessoal desenvolvido com React. O objetivo é apresentar de forma moderna e interativa minhas habilidades, experiências e projetos na área de desenvolvimento de software.
+Este é o meu portfólio pessoal desenvolvido com React. O objetivo é apresentar, de forma moderna, responsiva e interativa, minhas habilidades, experiências e projetos na área de desenvolvimento de software.
 
-## ✨ Sobre
+✨ Sobre o Projeto
 
-O projeto foi criado com foco em apresentar meu perfil profissional de forma visualmente atrativa, utilizando animações e um design responsivo, que se adapta a diferentes tamanhos de tela, como celulares, tablets e desktops.
+Este portfólio foi criado com foco na experiência do usuário e identidade visual pessoal. Ele utiliza animações suaves, design responsivo e uma estrutura clara para destacar meu perfil profissional, seja em desktops, tablets ou dispositivos móveis.
 
-## 🚀 Tecnologias Utilizadas
+💠 Tecnologias Utilizadas
 
-- **React** – Biblioteca JavaScript para construção da interface  
-- **JavaScript (JS)** – Linguagem de programação principal  
-- **HTML5** – Estruturação dos componentes  
-- **CSS3** – Estilização personalizada e responsiva  
+⚛️ React – Biblioteca principal para construção da interface
 
-## ⚙️ Funcionalidades
+💛 JavaScript (ES6+) – Lógica de funcionamento e interatividade
 
-- ✅ Interface com animações em elementos interativos  
-- ✅ Design 100% responsivo  
-- ✅ Navegação fluida e intuitiva  
-- ✅ Organização clara por seções (sobre mim, habilidades, projetos, contato, etc.)
+📄 HTML5 – Estrutura semântica dos componentes
 
-## 📦 Como rodar o projeto localmente
+🎨 CSS3 – Estilização responsiva e animações personalizadas
+
+Outras tecnologias que posso incluir futuramente: Docker, PHP, Git, etc.
+
+⚙️ Funcionalidades
+
+✅ Design moderno e responsivo
+
+✅ Animações suaves em elementos interativos
+
+✅ Navegação fluida entre seções
+
+✅ Estrutura organizada: Sobre, Habilidades, Projetos, Contato
+
+✅ Efeitos visuais como animação de digitação, slideshow de projetos com transição lateral, e mais!
 
 Clone este repositório:
 
