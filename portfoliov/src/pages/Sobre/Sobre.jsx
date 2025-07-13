@@ -4,7 +4,6 @@ import './sobre.css';
 import eu from '../../../public/img/eu2.jpeg';
 import faculdade from '../../../public/img/faculdade.jpg';
 
-// Hook personalizado para efeito de digitação
 function useTypewriterEffect(trigger, textoCompleto) {
   const [textoAtual, setTextoAtual] = useState('');
 
@@ -20,7 +19,6 @@ function useTypewriterEffect(trigger, textoCompleto) {
   return [textoAtual, setTextoAtual];
 }
 
-// Componente de bloco com imagem e texto digitado
 function BlocoComImagem({
   imagem,
   alt,
