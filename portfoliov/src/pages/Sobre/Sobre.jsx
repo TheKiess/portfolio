@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './sobre.css';
 import eu from '../../../public/img/eu2.jpeg';
 import faculdade from '../../../public/img/faculdade.jpg';
+import usuario from '../../../public/img/usuario.png';
 
 function useTypewriterEffect(trigger, textoCompleto) {
   const [textoAtual, setTextoAtual] = useState('');
@@ -88,6 +89,9 @@ Essa vivência torna minha jornada acadêmica ainda mais enriquecedora e inspira
           <Link to="/">Início</Link>
           <Link to="/projetos">Projetos</Link>
           <Link to="/contato">Contato</Link>
+          <Link to="/perfil">
+            <img src={usuario} alt="Tela de Login" height={35}/>
+          </Link>
         </nav>
       </header>
 

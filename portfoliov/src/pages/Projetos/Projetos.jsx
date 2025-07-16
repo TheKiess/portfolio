@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './projeto.css';
+import usuario from '../../../public/img/usuario.png';
 
 const imagens = [
   { src: '/img/1.png', legenda: 'Tela de Login' },
@@ -37,6 +38,9 @@ export default function Projetos() {
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/contato">Contato</Link>
+          <Link to="/perfil">
+            <img src={usuario} alt="Tela de login" height={35}/>
+          </Link>
         </nav>
       </header>
 

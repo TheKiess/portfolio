@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SplashScreen from './splashscreen';
 import './style.css';
+import usuario from '../../../public/img/usuario.png';
 
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -84,6 +85,9 @@ function Home() {
                 <Link to="/sobre">Sobre</Link>
                 <Link to="/projetos">Projetos</Link>
                 <Link to="/contato">Contato</Link>
+                <Link to="/perfil">
+                  <img src={usuario} alt="Tela de login" height={35}/>
+                </Link>
               </nav>
             </header>
 

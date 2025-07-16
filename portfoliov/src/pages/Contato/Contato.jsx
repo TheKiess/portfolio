@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './contato.module.css';
+import usuario from '../../../public/img/usuario.png';
 
 function Contato() {
   const form = useRef();
@@ -28,6 +29,9 @@ function Contato() {
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/projetos">Projetos</Link>
+          <Link to="/perfil">
+            <img src={usuario} alt="Tela de login" height={35}/>
+          </Link>
         </nav>
       </header>
 
