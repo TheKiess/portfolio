@@ -85,13 +85,18 @@ Essa vivência torna minha jornada acadêmica ainda mais enriquecedora e inspira
   return (
     <>
       <header className="cabecalho">
-        <nav>
-          <Link to="/">Início</Link>
-          <Link to="/projetos">Projetos</Link>
-          <Link to="/contato">Contato</Link>
-          <Link to="/perfil">
-            <img src={usuario} alt="Tela de Login" height={35}/>
-          </Link>
+        <nav className="nav-cabecalho">
+          <div className="links-esquerda">
+            <Link to="/">Início</Link>
+            <Link to="/projetos">Projetos</Link>
+            <Link to="/contato">Contato</Link>
+          </div>
+          <div className="login-area">
+            <Link to="/perfil" className="login-link">
+              <span>Login</span>
+              <img src={usuario} alt="Login" />
+            </Link>
+          </div>
         </nav>
       </header>
 
