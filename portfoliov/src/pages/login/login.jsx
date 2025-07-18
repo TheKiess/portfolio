@@ -1,10 +1,21 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./loginstyle.css";
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (email === "admin@email.com" && senha === "admin") {
+      navigate("/login/dashboard");
+    } else {
+      alert("Email ou senha inválidos");
+    }
   };
 
   return (
@@ -16,7 +27,9 @@ export default function LoginPage() {
           <input
             type="email"
             id="email"
-            placeholder="seuemail@email.com"
+            placeholder="admin@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
 
@@ -24,7 +37,9 @@ export default function LoginPage() {
           <input
             type="password"
             id="senha"
-            placeholder="••••••••"
+            placeholder="admin"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             required
           />
 

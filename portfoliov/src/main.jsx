@@ -5,6 +5,7 @@ import Sobre from './pages/Sobre/Sobre';
 import Contato from './pages/Contato/Contato';
 import Projetos from './pages/Projetos/Projetos';
 import Login from './pages/Login/Login';
+import Dashboard from './pages/Login/Dashboard';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/Login",
     element: <Login />
+  },
+  {
+    path:"/Login/Dashboard",
+    element: <Dashboard />
   }
 ]);
 

@@ -88,7 +88,7 @@ function Home() {
                   <Link to="/contato">Contato</Link>
                 </div>
                 <div className="login-area">
-                  <Link to="/perfil" className="login-link">
+                  <Link to="/login" className="login-link">
                     <span>Login</span>
                     <img src={usuario} alt="Login" />
                   </Link>
