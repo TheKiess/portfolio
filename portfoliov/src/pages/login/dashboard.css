@@ -2,6 +2,8 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
 }
 
 .dashboard-header{
@@ -20,32 +22,32 @@
   text-decoration: none;
   color: #2563eb;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .dashboard-header nav a:hover{
   color: #1d4ed8;
 }
 
-.stats-section{
-  display: flex;
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
-.stat-card{
-  flex: 1 1 200px;
+.stat-card {
   padding: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   color: white;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .stat-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .stat-label{
@@ -78,4 +80,33 @@
   border-radius: 0.5rem;
   color: #6b7280;
   background-color: #f9fafb;
+}
+
+.update-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.update-list li{
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #3b82f6;
+  background-color: #f1f5f9;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.update-list li:hover{
+  background-color: #e5e7eb;
+}
+
+.update-list li span{
+  color: #6b7280;
+  font-size: 0.875rem;
 }
