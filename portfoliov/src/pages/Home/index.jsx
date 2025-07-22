@@ -8,7 +8,6 @@ import usuario from '../../../public/img/usuario.png';
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [activeExperience, setActiveExperience] = useState(null);
-  const [animating, setAnimating] = useState(false);
   const [activeToolset, setActiveToolset] = useState(null);
 
   const experienceList = {
@@ -63,20 +62,14 @@ function Home() {
 
   const handleExperienceClick = (exp) => {
     if (exp === activeExperience) return;
-    setAnimating(false);
-    setTimeout(() => {
-      setActiveExperience(exp);
-      setAnimating(true);
-    }, 10);
+    setActiveExperience(null);
+    setTimeout(() => setActiveExperience(exp), 10);
   };
 
   const handleToolClick = (tool) => {
     if (tool === activeToolset) return;
-    setAnimating(false);
-    setTimeout(() => {
-      setActiveToolset(tool);
-      setAnimating(true);
-    }, 10);
+    setActiveToolset(null);
+    setTimeout(() => setActiveToolset(tool), 10);
   };
 
   return (
@@ -135,15 +128,25 @@ function Home() {
                   </div>
 
                   <div id="separator3">
-                    {activeExperience && (
-                      <div className={`experience-details ${animating ? 'apaga' : ''}`}>
-                        <ul className="txtUl">
-                          {experienceList[activeExperience].details.map((item, index) => (
-                            <li key={index} className="txtExp">{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    <AnimatePresence mode="wait">
+                      {activeExperience && (
+                        <motion.div
+                          key={activeExperience}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0}}
+                          transition={{ duration: 0.3 }}
+                          
+                          className="experience-details"
+                        >
+                          <ul className="txtUl">
+                            {experienceList[activeExperience].details.map((item, index) => (
+                              <li key={index} className="txtExp">{item}</li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
 
@@ -155,24 +158,32 @@ function Home() {
                   </div>
 
                   <div id="tools-separator2">
-                    {activeToolset && <h3 className="txtDate">{toolList[activeToolset].date}</h3>}
-                    {!activeToolset && 'Clique para ver as ferramentas'}
+                    {activeToolset ? <h3 className="txtDate">{toolList[activeToolset].date}</h3> : 'Clique para ver as ferramentas'}
                   </div>
 
                   <div id="tools-separator3">
-                    {activeToolset && (
-                      <div className={`experience-details ${animating ? 'apaga' : ''}`}>
-                        <div className="icon-grid">
-                          {toolList[activeToolset].icons.map((icon, index) => (
-                            <img
-                              key={index}
-                              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`}
-                              alt={icon}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    <AnimatePresence mode="wait">
+                      {activeToolset && (
+                        <motion.div
+                          key={activeToolset}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="experience-details"
+                        >
+                          <div className="icon-grid">
+                            {toolList[activeToolset].icons.map((icon, index) => (
+                              <img
+                                key={index}
+                                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`}
+                                alt={icon}
+                              />
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </div>
