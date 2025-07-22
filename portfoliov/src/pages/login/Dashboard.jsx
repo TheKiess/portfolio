@@ -31,8 +31,8 @@ export default function Dashboard() {
       });
 
       setUpdates([
-        { id: 1, title: 'Novo serviço cadastrado', date: '2025-07-19' },
-        { id: 2, title: 'Pedido finalizado', date: '2025-07-18' },
+        {id: 1, title: 'Novo serviço cadastrado', date: '2025-07-19'},
+        {id: 2, title: 'Pedido finalizado', date: '2025-07-18'},
       ]);
     }, 500);
   }, []);

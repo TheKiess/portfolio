@@ -449,3 +449,75 @@
 .login-link:hover img{
   border: 2px solid #00ffaa;
 }
+
+#tools{
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#tools-separator1{
+  background-color: #00000044;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+#tools-separator1 h4{
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-family: monospace;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+#tools-separator1 h4:hover{
+  background-color: #1c1c2c;
+  transform: scale(1.05);
+}
+
+#tools-separator1 h4.active{
+  color: cyan;
+  background-color: #1c1c2c;
+}
+
+#tools-separator2{
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: #1c1c2c;
+}
+
+#tools-separator3{
+  grid-column: 1 / -1;
+  padding: 20px;
+  background-color: #1b1b2b;
+}
+
+.icon-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.icon-grid img{
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.icon-grid img:hover{
+  transform: scale(1.1);
+}

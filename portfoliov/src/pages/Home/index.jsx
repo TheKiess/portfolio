@@ -9,6 +9,7 @@ function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [activeExperience, setActiveExperience] = useState(null);
   const [animating, setAnimating] = useState(false);
+  const [activeToolset, setActiveToolset] = useState(null);
 
   const experienceList = {
     atua: {
@@ -45,6 +46,21 @@ function Home() {
     },
   };
 
+  const toolList = {
+    frequente: {
+      date: 'No dia a dia',
+      icons: [
+        'php', 'docker', 'ubuntu', 'html5', 'css3', 'react', 'javascript', 'python', 'postgresql'
+      ],
+    },
+    academico: {
+      date: 'Em projetos e aulas',
+      icons: [
+        'r', 'arduino', 'cplusplus'
+      ],
+    }
+  };
+
   const handleExperienceClick = (exp) => {
     if (exp === activeExperience) return;
     setAnimating(false);
@@ -54,12 +70,13 @@ function Home() {
     }, 10);
   };
 
-  const scrollLeft = () => {
-    document.querySelector('.pages')?.scrollBy({ left: -300, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    document.querySelector('.pages')?.scrollBy({ left: 300, behavior: 'smooth' });
+  const handleToolClick = (tool) => {
+    if (tool === activeToolset) return;
+    setAnimating(false);
+    setTimeout(() => {
+      setActiveToolset(tool);
+      setAnimating(true);
+    }, 10);
   };
 
   return (
@@ -97,7 +114,6 @@ function Home() {
             </header>
 
             <div className="content">
-
               <div className="pages">
                 <h2 className="title">Frank Kiess</h2>
                 <p className="descricao">
@@ -109,33 +125,13 @@ function Home() {
                 <h2 className="title">Experiências</h2>
                 <div id="experiences">
                   <div id="separator1">
-                    <h4
-                      id="experience0"
-                      className={activeExperience === 'atua' ? 'active' : ''}
-                      onClick={() => handleExperienceClick('atua')}
-                    >
-                      Atua by Nstech
-                    </h4>
-                    <h4
-                      id="experience1"
-                      className={activeExperience === 'exercito' ? 'active' : ''}
-                      onClick={() => handleExperienceClick('exercito')}
-                    >
-                      Exército Brasileiro
-                    </h4>
-                    <h4
-                      id="experience2"
-                      className={activeExperience === 'evo' ? 'active' : ''}
-                      onClick={() => handleExperienceClick('evo')}
-                    >
-                      EVO Automações
-                    </h4>
+                    <h4 className={activeExperience === 'atua' ? 'active' : ''} onClick={() => handleExperienceClick('atua')}>Atua by Nstech</h4>
+                    <h4 className={activeExperience === 'exercito' ? 'active' : ''} onClick={() => handleExperienceClick('exercito')}>Exército Brasileiro</h4>
+                    <h4 className={activeExperience === 'evo' ? 'active' : ''} onClick={() => handleExperienceClick('evo')}>EVO Automações</h4>
                   </div>
 
                   <div id="separator2">
-                    {activeExperience
-                      ? <h3 className="txtDate">{experienceList[activeExperience].date}</h3>
-                      : 'Para mais informações clique à esquerda!'}
+                    {activeExperience ? <h3 className="txtDate">{experienceList[activeExperience].date}</h3> : 'Para mais informações clique à esquerda!'}
                   </div>
 
                   <div id="separator3">
@@ -146,6 +142,35 @@ function Home() {
                             <li key={index} className="txtExp">{item}</li>
                           ))}
                         </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <h2 className="title">Ferramentas e Linguagens</h2>
+                <div id="tools">
+                  <div id="tools-separator1">
+                    <h4 className={activeToolset === 'frequente' ? 'active' : ''} onClick={() => handleToolClick('frequente')}>Mais utilizadas</h4>
+                    <h4 className={activeToolset === 'academico' ? 'active' : ''} onClick={() => handleToolClick('academico')}>Acadêmicas</h4>
+                  </div>
+
+                  <div id="tools-separator2">
+                    {activeToolset && <h3 className="txtDate">{toolList[activeToolset].date}</h3>}
+                    {!activeToolset && 'Clique para ver as ferramentas'}
+                  </div>
+
+                  <div id="tools-separator3">
+                    {activeToolset && (
+                      <div className={`experience-details ${animating ? 'apaga' : ''}`}>
+                        <div className="icon-grid">
+                          {toolList[activeToolset].icons.map((icon, index) => (
+                            <img
+                              key={index}
+                              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`}
+                              alt={icon}
+                            />
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
