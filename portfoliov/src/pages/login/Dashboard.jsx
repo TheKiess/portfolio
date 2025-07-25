@@ -7,17 +7,20 @@ import './dashboard.css';
 export default function Dashboard() {
   const [stats, setStats] = useState(null);
   const [updates, setUpdates] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [erro, setErro] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getDashboardData()
-      .then(data => {
+    async function fetchData() {
+      try {
+        const data = await getDashboardData();
         setStats(data.stats);
         setUpdates(data.updates);
-      })
-      .catch(err => setErro(err.message))
-      .finally(() => setLoading(false));
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+
+    fetchData();
   }, []);
 
   return (
@@ -27,32 +30,34 @@ export default function Dashboard() {
         <nav><Link to="/">Home</Link></nav>
       </header>
 
+      {error && (
+        <div className="error-box">
+          {error}
+        </div>
+      )}
+
       <section className="stats-section">
-        {loading ? (
-          <div className="content-box">Carregando estatísticas...</div>
-        ) : erro ? (
-          <div className="content-box erro">{erro}</div>
-        ) : (
+        {stats ? (
           <>
             <StatCard label="Usuários" value={stats.totalUsers} color="#3b82f6" to="/usuarios" />
             <StatCard label="Serviços Ativos" value={stats.activeServices} color="#22c55e" to="/servicos" />
             <StatCard label="Pedidos Pendentes" value={stats.pendingOrders} color="#facc15" to="/pedidos" />
           </>
+        ) : (
+          <p>Carregando estatísticas...</p>
         )}
       </section>
 
       <section className="content-section">
         <h2>Últimas Atualizações</h2>
-        {loading ? (
-          <div className="content-box">Carregando atualizações...</div>
-        ) : updates.length === 0 ? (
+        {updates.length === 0 ? (
           <div className="content-box">Nenhuma atualização recente.</div>
         ) : (
           <ul className="update-list">
-            {updates.map((u) => (
-              <li key={u.id}>
-                <strong>{u.title}</strong>
-                <span>{new Date(u.date).toLocaleDateString('pt-BR')}</span>
+            {updates.map((update) => (
+              <li key={update.id}>
+                <strong>{update.title}</strong>
+                <span>{update.date}</span>
               </li>
             ))}
           </ul>
