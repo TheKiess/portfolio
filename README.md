@@ -1,46 +1,75 @@
-🚀 Portfólio Pessoal - React
+# 🚀 Portfólio Pessoal - React
 
-Este é o meu portfólio pessoal desenvolvido com React. O objetivo é apresentar, de forma moderna, responsiva e interativa, minhas habilidades, experiências e projetos na área de desenvolvimento de software.
+Este é o meu portfólio pessoal desenvolvido com **React**. O objetivo é apresentar, de forma moderna, responsiva e interativa, minhas habilidades, experiências e projetos na área de desenvolvimento de software.
 
-✨ Sobre o Projeto
+---
+
+## ✨ Sobre o Projeto
 
 Este portfólio foi criado com foco na experiência do usuário e identidade visual pessoal. Ele utiliza animações suaves, design responsivo e uma estrutura clara para destacar meu perfil profissional, seja em desktops, tablets ou dispositivos móveis.
 
-💠 Tecnologias Utilizadas
+A versão mais recente traz um **dashboard interativo** alimentado por uma API mock, demonstrando minha capacidade de trabalhar com frontend + backend integrados.
 
-⚛️ React – Biblioteca principal para construção da interface
+---
 
-💛 JavaScript (ES6+) – Lógica de funcionamento e interatividade
+## 💠 Tecnologias Utilizadas
 
-📄 HTML5 – Estrutura semântica dos componentes
+- ⚛️ **React** – Biblioteca principal para construção da interface
+- 💛 **JavaScript (ES6+)** – Lógica de funcionamento e interatividade
+- 📄 **HTML5** – Estrutura semântica dos componentes
+- 🎨 **CSS3** – Estilização responsiva e animações personalizadas
+- 🔁 **React Router DOM** – Roteamento entre páginas
+- 🛠️ **Express (Node.js)** – Backend simulado para API do dashboard
 
-🎨 CSS3 – Estilização responsiva e animações personalizadas
+> Outras tecnologias que posso incluir futuramente: **Docker, PHP, Git**, entre outras.
 
-Outras tecnologias que posso incluir futuramente: Docker, PHP, Git, etc.
+---
 
-⚙️ Funcionalidades
+## ⚙️ Funcionalidades
 
-✅ Design moderno e responsivo
+- ✅ Design moderno e responsivo
+- ✅ Animações suaves em elementos interativos
+- ✅ Navegação fluida entre seções
+- ✅ Estrutura organizada: Sobre, Habilidades, Projetos, Contato, Login
+- ✅ Efeitos visuais como:
+  - Animação de digitação
+  - Slideshow com transição lateral e indicadores clicáveis
+- ✅ **Dashboard com:**
+  - Cartões de estatísticas dinâmicas (usuários, serviços, pedidos)
+  - Últimas atualizações consumidas de uma API
+  - Componentes reutilizáveis (`StatCard`)
+  - Backend simulado via Express
 
-✅ Animações suaves em elementos interativos
+---
 
-✅ Navegação fluida entre seções
+## 📁 Estrutura de Pastas
 
-✅ Estrutura organizada: Sobre, Habilidades, Projetos, Contato
+src/                                                             <br/>
+├── components/ # Componentes reutilizáveis (StatCard etc.)      <br/>
+├── pages/      # Páginas principais (Home, Login, Dashboard...) <br/>
+├── services/   # Comunicação com API (ex: dashboardService)     <br/>
+├── App.jsx     # Componente raiz da aplicação                   <br/>
+└── main.jsx    # Entrada principal da aplicação                 <br/>
 
-✅ Efeitos visuais como animação de digitação, slideshow de projetos com transição lateral, e mais!
+---
+
+## 📦 Instalação e Uso
 
 Clone este repositório:
 
 ```bash
 git clone https://github.com/seu-usuario/portfolio-react.git
-
 cd portfolio-react
-
 npm install
+npm run dev
+Se estiver utilizando o servidor mock (server.js com Express), execute também:
+```
 
-npm start
+
+node server.js:
+```bash
+O backend será acessado por http://localhost:5000/api/dashboard
+```
 
 👨‍💻 Autor
-Desenvolvido por Frank
-GitHub • LinkedIn
+Desenvolvido com 💻 por Frank
