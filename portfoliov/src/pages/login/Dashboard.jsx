@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import StatCard from '../../components/StatCard';
 import { getDashboardData } from '../../services/dashboardService';
+import { Users, Wrench, ClipboardList } from 'lucide-react';
 import './dashboard.css';
 
 export default function Dashboard() {
@@ -16,7 +17,7 @@ export default function Dashboard() {
         setStats(data.stats);
         setUpdates(data.updates);
       } catch (err) {
-        setError(err.message);
+        setError(err.message || 'Erro ao buscar dados.');
       }
     }
 
@@ -39,9 +40,27 @@ export default function Dashboard() {
       <section className="stats-section">
         {stats ? (
           <>
-            <StatCard label="Usuários" value={stats.totalUsers} color="#3b82f6" to="/usuarios" />
-            <StatCard label="Serviços Ativos" value={stats.activeServices} color="#22c55e" to="/servicos" />
-            <StatCard label="Pedidos Pendentes" value={stats.pendingOrders} color="#facc15" to="/pedidos" />
+            <StatCard
+              label="Usuários"
+              value={stats.totalUsers}
+              color="#3b82f6"
+              to="/usuarios"
+              icon={Users}
+            />
+            <StatCard
+              label="Serviços Ativos"
+              value={stats.activeServices}
+              color="#22c55e"
+              to="/servicos"
+              icon={Wrench}
+            />
+            <StatCard
+              label="Pedidos Pendentes"
+              value={stats.pendingOrders}
+              color="#facc15"
+              to="/pedidos"
+              icon={ClipboardList}
+            />
           </>
         ) : (
           <p>Carregando estatísticas...</p>
@@ -54,12 +73,14 @@ export default function Dashboard() {
           <div className="content-box">Nenhuma atualização recente.</div>
         ) : (
           <ul className="update-list">
-            {updates.map((update) => (
-              <li key={update.id}>
-                <strong>{update.title}</strong>
-                <span>{update.date}</span>
-              </li>
-            ))}
+            {updates
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .map((update) => (
+                <li key={update.id} className="update-item">
+                  <strong>{update.title}</strong>
+                  <span>{new Date(update.date).toLocaleDateString('pt-BR')}</span>
+                </li>
+              ))}
           </ul>
         )}
       </section>

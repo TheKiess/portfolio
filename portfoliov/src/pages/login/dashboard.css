@@ -36,13 +36,17 @@
   margin-bottom: 2rem;
 }
 
-.stat-card {
+.stat-card{
   padding: 1.5rem;
   border-radius: 1rem;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .stat-card:hover{
@@ -88,7 +92,7 @@
   margin: 0;
 }
 
-.update-list li{
+.update-list li, .update-item{
   padding: 0.75rem 1rem;
   border-left: 4px solid #3b82f6;
   background-color: #f1f5f9;
@@ -102,11 +106,11 @@
   transition: background-color 0.2s ease;
 }
 
-.update-list li:hover{
+.update-item:hover{
   background-color: #e5e7eb;
 }
 
-.update-list li span{
+.update-item span {
   color: #6b7280;
   font-size: 0.875rem;
 }
