@@ -55,19 +55,28 @@ src/                                                             <br/>
 
 ## 📦 Instalação e Uso
 
-Clone este repositório:
+Clone este repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/portfolio-react.git
-cd portfolio-react
+git clonehttps://github.com/TheKiess/portfolio
+
+cd portfoliov
+
 npm install
-npm run dev
-Se estiver utilizando o servidor mock (server.js com Express), execute também:
 ```
 
+▶️ Rodando a aplicação frontend (Vite)
+Em um terminal:
 
-node server.js:
 ```bash
+npm run dev
+```
+
+🖥️ Rodando o backend mock (caso utilize o servidor Express)
+Em outro terminal:
+
+```bash
+node server.js
 O backend será acessado por http://localhost:5000/api/dashboard
 ```
 
