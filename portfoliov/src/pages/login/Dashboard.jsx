@@ -12,17 +12,22 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function fetchData() {
-      try {
+      try
+      {
         const data = await getDashboardData();
         setStats(data.stats);
         setUpdates(data.updates);
-      } catch (err) {
+      } 
+
+      catch (err)
+      {
         setError(err.message || 'Erro ao buscar dados.');
       }
     }
 
     fetchData();
-  }, []);
+  },
+  []);
 
   return (
     <div className="dashboard">
@@ -31,7 +36,8 @@ export default function Dashboard() {
         <nav><Link to="/">Home</Link></nav>
       </header>
 
-      {error && (
+      {
+      error && (
         <div className="error-box">
           {error}
         </div>
@@ -47,6 +53,7 @@ export default function Dashboard() {
               to="/usuarios"
               icon={Users}
             />
+
             <StatCard
               label="Serviços Ativos"
               value={stats.activeServices}
@@ -54,6 +61,7 @@ export default function Dashboard() {
               to="/servicos"
               icon={Wrench}
             />
+
             <StatCard
               label="Pedidos Pendentes"
               value={stats.pendingOrders}

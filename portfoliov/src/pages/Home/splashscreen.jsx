@@ -56,8 +56,8 @@ function SlideSobre() {
       key="slide2"
       className="splash-box"
       initial={{ scale: 0.95, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.95, opacity: 0 }}
+      animate={{ scale: 1,    opacity: 1 }}
+      exit={{ scale: 0.95,    opacity: 0 }}
       transition={{ duration: 1.2 }}
     >
       <div className="sobre-container">
@@ -92,21 +92,27 @@ function SplashScreen({ onFinish }) {
           }
           return prev + 1;
         });
-      }, 300);
+      },
+      300);
+
       return () => {
         clearInterval(interval);
         clearTimeout(timer);
       };
     }
 
-    if (step === 2) {
+    if (step === 2)
+    {
       timer = setTimeout(() => setStep(3), 5000);
-    } else if (step === 3) {
+    }
+    else if (step === 3)
+    {
       timer = setTimeout(() => onFinish(), 1000);
     }
 
     return () => clearTimeout(timer);
-  }, [step, onFinish]);
+  },
+  [step, onFinish]);
 
   return (
     <AnimatePresence>

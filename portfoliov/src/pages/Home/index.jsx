@@ -6,14 +6,17 @@ import './style.css';
 import usuario from '../../../public/img/usuario.png';
 
 function Home() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash,       setShowSplash]       = useState(true);
   const [activeExperience, setActiveExperience] = useState(null);
-  const [activeToolset, setActiveToolset] = useState(null);
+  const [activeToolset,    setActiveToolset]    = useState(null);
 
-  const experienceList = {
-    atua: {
+  const experienceList = 
+  {
+    atua:
+    {
       date: 'Atualmente',
-      details: [
+      details: 
+      [
         'Atuação como estagiário de desenvolvimento na Atua by Nstech;',
         'Utilização de PHP para desenvolvimento backend;',
         'Trabalho com containers usando Docker;',
@@ -23,9 +26,11 @@ function Home() {
         'Integração com tecnologias JavaScript.'
       ],
     },
-    exercito: {
+    exercito:
+    {
       date: '4 anos',
-      details: [
+      details:
+      [
         'Gerenciamento de tarefas e documentação online;',
         'Invenção de banners, placas e quadros murais;',
         'Desenvolvimento de materiais gráficos digitais;',
@@ -33,9 +38,11 @@ function Home() {
         'Motorista de viaturas.',
       ],
     },
-    evo: {
+    evo:
+    {
       date: '9 meses',
-      details: [
+      details:
+      [
         'Montagem dos equipamentos, configurações e testes;',
         'Organização de mercadorias;',
         'Manuseio e inserção em dashboard;',
@@ -45,17 +52,32 @@ function Home() {
     },
   };
 
-  const toolList = {
-    frequente: {
+  const toolList = 
+  {
+    frequente:
+    {
       date: 'No dia a dia',
-      icons: [
-        'php', 'docker', 'ubuntu', 'html5', 'css3', 'react', 'javascript', 'python', 'postgresql'
+      icons:
+      [
+        'php', 
+        'docker', 
+        'ubuntu', 
+        'html5', 
+        'css3', 
+        'react', 
+        'javascript', 
+        'python', 
+        'postgresql'
       ],
     },
-    academico: {
+    academico:
+    {
       date: 'Em projetos e aulas',
-      icons: [
-        'r', 'arduino', 'cplusplus'
+      icons:
+      [
+        'r', 
+        'arduino', 
+        'cplusplus'
       ],
     }
   };
@@ -118,9 +140,9 @@ function Home() {
                 <h2 className="title">Experiências</h2>
                 <div id="experiences">
                   <div id="separator1">
-                    <h4 className={activeExperience === 'atua' ? 'active' : ''} onClick={() => handleExperienceClick('atua')}>Atua by Nstech</h4>
+                    <h4 className={activeExperience === 'atua'     ? 'active' : ''} onClick={() => handleExperienceClick('atua')}>Atua by Nstech</h4>
                     <h4 className={activeExperience === 'exercito' ? 'active' : ''} onClick={() => handleExperienceClick('exercito')}>Exército Brasileiro</h4>
-                    <h4 className={activeExperience === 'evo' ? 'active' : ''} onClick={() => handleExperienceClick('evo')}>EVO Automações</h4>
+                    <h4 className={activeExperience === 'evo'      ? 'active' : ''} onClick={() => handleExperienceClick('evo')}>EVO Automações</h4>
                   </div>
 
                   <div id="separator2">

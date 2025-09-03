@@ -15,7 +15,7 @@ app.get('/api/dashboard', (req, res) => {
     },
     updates: [
       { id: 1, title: 'Novo usuário cadastrado', date: '2025-07-29T12:00:00Z' },
-      { id: 2, title: 'Serviço concluído', date: '2025-07-28T15:30:00Z' }
+      { id: 2, title: 'Serviço concluído',       date: '2025-07-28T15:30:00Z' }
     ]
   });
 });
